@@ -1,11 +1,12 @@
 
-import React, {useState, useEffect} from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import {URL, authentication} from '../../Assets/Url';
+import React, {useState, useEffect} from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import {URL} from '../../Assets/Url';
+import {authentication} from '../../Assets/key'
 import {goToUserStarreds} from '../../Router/Cordinator';
 import {goToSearchUser} from '../../Router/Cordinator';
 import {goToUserInfo} from '../../Router/Cordinator';
-import {Buttons, Main, Bar, Repos} from './ReposStyled'
+import {Buttons, Main, Bar, Repos, CardRepo} from './ReposStyled';
 
 import axios from 'axios';
 
@@ -26,7 +27,8 @@ const UserRepos = () => {
           } 
         })
         .catch((err) => {
-          alert('Error') // tratar possíveis erros
+          alert('Esse usuário não existe, você será redirecionado para a pagina de pesquisa novamente')
+          goToSearchUser (history)
         })
       } else {
         alert('Você está sem conexão de internet no momento, tente mais tarde');
@@ -35,11 +37,10 @@ const UserRepos = () => {
     }, []);
 
     const reposInfo = repos.map((repo) => {
-      console.log(repo)
       return(
-        <div>
-          <p>{repo.name}</p>
-        </div>
+        <CardRepo>
+          <h3><a href={repo.html_url}>{repo.name}</a></h3>
+        </CardRepo>
       )
     })
 
@@ -53,13 +54,12 @@ const UserRepos = () => {
           </Buttons>
         </Bar>
         <Repos>
+          <h1>Repositórios</h1>
           <div>
-            <h1>Repositórios</h1>
-            <h3>{reposInfo}</h3>
+            {reposInfo}
           </div>
         </Repos>
       </Main>
     )
 }
-
 export default UserRepos;

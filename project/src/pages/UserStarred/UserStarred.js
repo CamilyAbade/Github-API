@@ -1,11 +1,12 @@
 
-import React, {useState, useEffect}from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import {URL, authentication} from '../../Assets/Url';
+import React, {useState, useEffect}from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import {URL} from '../../Assets/Url';
+import {authentication} from '../../Assets/key'
 import {goToUserRepos} from '../../Router/Cordinator';
 import {goToSearchUser} from '../../Router/Cordinator';
 import {goToUserInfo} from '../../Router/Cordinator';
-import {Bar, Buttons} from '../UserInfo/UserInfoStyled'
+import {Buttons, Main, Bar, Repos, CardRepo} from './UserStarredStyled';
 import axios from 'axios';
 
 const UserStarred = () => {
@@ -25,6 +26,8 @@ const UserStarred = () => {
                 } 
             })
             .catch((err) => {
+                alert('Esse usuário não existe, você será redirecionado para a pagina de pesquisa novamente')
+                goToSearchUser (history)
             })
         } else {
           alert('Você está sem conexão de internet no momento, tente mais tarde');
@@ -32,26 +35,28 @@ const UserStarred = () => {
         }
     }, []);
 
-    const starredRepos = starreds.map((repo) => {
+    const starredRepos = starreds.map((starred) => {
         return(
-            <div>
-            <p>{repo.name}</p>
-            </div>
+            <CardRepo>
+                <h3><a href={starred.html_url}>{starred.name}</a></h3>
+            </CardRepo>
         )
     })
 
     return(
-        <>
+        <Main>
             <Bar>
-                <Buttons>
-                    <h3 onClick={() => goToSearchUser (history)}>Nova busca</h3>
-                    <h3 onClick={() => goToUserInfo(history, user)}>Ver Detalhes</h3>
-                    <h3 onClick={() => goToUserRepos (history, user)}>Repositórios</h3>
-                </Buttons>
+            <Buttons>
+                <h3 onClick={() => goToSearchUser (history)}>Nova busca</h3>
+                <h3 onClick={() => goToUserInfo(history, user)}>Ver Detalhes</h3>
+                <h3 onClick={() => goToUserRepos (history, user)}>Repositórios</h3>
+            </Buttons>
             </Bar>
-            {starredRepos}
-        </>
+            <Repos>
+                <h1>Mais visitados</h1>
+                {starredRepos}
+            </Repos>
+        </Main>
     )
 }
-
 export default UserStarred;

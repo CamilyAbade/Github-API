@@ -1,8 +1,8 @@
-import styled from "styled-components";
 import {colorPrimary, colorSecondary} from '../Assets/Colors'
 
-export const buttonPrimary = styled.h3`
-    h3 {
+
+
+export const buttonPrimary = `
     float: left;
     position: relative;
     color: #fff;
@@ -38,9 +38,8 @@ export const buttonPrimary = styled.h3`
     margin: 0 0.5rem 0 0.5rem;
 
   }
-    }
 `
-export const buttonSecondary = styled.h3`
+export const buttonSecondary = `
     background-color: ${colorPrimary};
     color: ${colorSecondary};
     &:hover{

@@ -1,11 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import {URL, authentication} from '../../Assets/Url';
+import {URL} from '../../Assets/Url';
+import {authentication} from '../../Assets/key'
 import {goToSearchUser} from '../../Router/Cordinator';
 import {goToUserRepos} from '../../Router/Cordinator';
 import {goToUserStarreds} from '../../Router/Cordinator';
-import {Bar, Buttons, Info, User} from './UserInfoStyled'
+import {Bar, Buttons, Info, User} from './UserInfoStyled';
+import { Body, Loading } from '../../Assets/Loading';
 import axios from 'axios';
 
 const UserInfo = () => {
@@ -46,7 +47,7 @@ const UserInfo = () => {
             <h2>{results.login}</h2>
             <p>{results.location} {results.location && results.company ? ',' : ''} {results.company}</p>
             <br/>
-            <a href={results.html_url}>Github</a> 
+            {results.avatar_url? <a href={results.html_url}>Github</a> : <Body><Loading/></Body> }
           </User>
         </Info>
     </>
