@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Header} from '../../Components/Header'
 import {buttonPrimary} from '../../Components/styledButton'
 import { colorPrimary, colorSecondary } from "../../Assets/Colors";
-import backgroundRepos from '../../Assets/backgrounds/backgroundRepos.jpg'
+import backgroundStarred from '../../Assets/backgrounds/backgroundStarred.jpeg'
 import { keyframes } from 'styled-components'
 
 const card = keyframes`
@@ -42,7 +42,7 @@ export const Repos = styled.div`
     max-height: 100vh;
     flex-direction: column;
     height: 92vh;
-    background-image: url(${backgroundRepos});
+    background-image: url(${backgroundStarred});
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;

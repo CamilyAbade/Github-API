@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colorSecondary } from "../../Assets/Colors";
-import {Header} from '../../Assets/Header'
-import {buttonSecondary} from '../../Assets/styledButton'
+import {Header} from '../../Components/Header'
+import {buttonSecondary} from '../../Components/styledButton'
 
 
 export const Bar = styled.div`

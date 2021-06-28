@@ -5,7 +5,7 @@ import {URL, authentication} from '../../Assets/Url';
 import {goToUserStarreds} from '../../Router/Cordinator';
 import {goToSearchUser} from '../../Router/Cordinator';
 import {goToUserInfo} from '../../Router/Cordinator';
-import {Buttons, Main, Bar, Repos} from './ReposStyled'
+import {Buttons, Main, Bar, Repos, CardRepo} from './ReposStyled'
 
 import axios from 'axios';
 
@@ -35,11 +35,10 @@ const UserRepos = () => {
     }, []);
 
     const reposInfo = repos.map((repo) => {
-      console.log(repo)
       return(
-        <div>
-          <p>{repo.name}</p>
-        </div>
+        <CardRepo>
+          <h3><a href={repo.html_url}>{repo.name}</a></h3>
+        </CardRepo>
       )
     })
 
@@ -52,10 +51,14 @@ const UserRepos = () => {
               <h3 onClick={() => goToUserStarreds (history, user)}>Mais Visitados</h3 >
           </Buttons>
         </Bar>
+
+
         <Repos>
+          <h1>Repositórios</h1>
+
           <div>
-            <h1>Repositórios</h1>
-            <h3>{reposInfo}</h3>
+            {reposInfo}
+
           </div>
         </Repos>
       </Main>

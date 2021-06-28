@@ -5,7 +5,7 @@ import {URL, authentication} from '../../Assets/Url';
 import {goToUserRepos} from '../../Router/Cordinator';
 import {goToSearchUser} from '../../Router/Cordinator';
 import {goToUserInfo} from '../../Router/Cordinator';
-import {Bar, Buttons} from '../UserInfo/UserInfoStyled'
+import {Buttons, Main, Bar, Repos, CardRepo} from './UserStarredStyled'
 import axios from 'axios';
 
 const UserStarred = () => {
@@ -32,25 +32,30 @@ const UserStarred = () => {
         }
     }, []);
 
-    const starredRepos = starreds.map((repo) => {
+    const starredRepos = starreds.map((starred) => {
         return(
-            <div>
-            <p>{repo.name}</p>
-            </div>
+            <CardRepo>
+                <h3><a href={starred.html_url}>{starred.name}</a></h3>
+            </CardRepo>
         )
     })
 
     return(
-        <>
+        <Main>
             <Bar>
-                <Buttons>
-                    <h3 onClick={() => goToSearchUser (history)}>Nova busca</h3>
-                    <h3 onClick={() => goToUserInfo(history, user)}>Ver Detalhes</h3>
-                    <h3 onClick={() => goToUserRepos (history, user)}>Repositórios</h3>
-                </Buttons>
+            <Buttons>
+                <h3 onClick={() => goToSearchUser (history)}>Nova busca</h3>
+                <h3 onClick={() => goToUserInfo(history, user)}>Ver Detalhes</h3>
+                <h3 onClick={() => goToUserRepos (history, user)}>Repositórios</h3>
+            </Buttons>
             </Bar>
-            {starredRepos}
-        </>
+            <Repos>
+                <h1>Mais visitados</h1>
+                <div>
+                    {starredRepos}
+                </div>
+            </Repos>
+        </Main>
     )
 }
 

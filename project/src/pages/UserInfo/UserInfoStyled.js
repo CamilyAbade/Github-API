@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {Header} from '../../Assets/Header'
-import {buttonPrimary, buttonSecondary} from '../../Assets/styledButton'
+import {Header} from '../../Components/Header'
+import {buttonPrimary, buttonSecondary} from '../../Components/styledButton'
 import backgroundInfo from '../../Assets/backgrounds/backgroundInfo.jpg'
 
 export const Buttons = styled.div`
