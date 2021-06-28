@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { colorPrimary, colorSecondary } from '../../Assets/Colors'
 
 export const Bloco = styled.div `
-    background-color: rgb(255, 0, 0, 0.9);
+    background-color: ${colorPrimary};
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -9,7 +10,7 @@ export const Bloco = styled.div `
     align-items: center;
     justify-content: center;
     h3{
-        font-size: 20vw;
+        font-size: 8vw;
         color: rgb(255,255,255, 0.4);
     }
     button{
@@ -22,6 +23,7 @@ export const Bloco = styled.div `
         &:hover{
             background-color: black;
             color: white;
+            border: 2px solid ${colorSecondary};
         }
     }
 `

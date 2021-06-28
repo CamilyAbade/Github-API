@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import {goToUserInfo, goToSearchUser} from '../../Router/Cordinator'
-import {Bar, Main,Search} from './SearchStyled'
+import {goToUserInfo, goToSearchUser} from '../../Router/Cordinator';
+import {Bar, Main,Search} from './SearchStyled';
 
 const SearchUser = () => {
     const history = useHistory()

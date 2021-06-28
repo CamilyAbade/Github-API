@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import {Header} from '../../Components/Header'
-import {buttonPrimary} from '../../Components/styledButton'
+import {Header} from '../../Components/Header';
+import {buttonPrimary} from '../../Components/styledButton';
 import { colorPrimary, colorSecondary } from "../../Assets/Colors";
-import backgroundRepos from '../../Assets/backgrounds/backgroundRepos.jpg'
-import { keyframes } from 'styled-components'
+import backgroundRepos from '../../Assets/backgrounds/backgroundRepos.jpg';
+import { keyframes } from 'styled-components';
 
 const card = keyframes`
     0%{

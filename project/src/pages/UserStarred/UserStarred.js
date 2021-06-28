@@ -1,11 +1,12 @@
 
-import React, {useState, useEffect}from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import {URL, authentication} from '../../Assets/Url';
+import React, {useState, useEffect}from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import {URL} from '../../Assets/Url';
+import {authentication} from '../../Assets/key'
 import {goToUserRepos} from '../../Router/Cordinator';
 import {goToSearchUser} from '../../Router/Cordinator';
 import {goToUserInfo} from '../../Router/Cordinator';
-import {Buttons, Main, Bar, Repos, CardRepo} from './UserStarredStyled'
+import {Buttons, Main, Bar, Repos, CardRepo} from './UserStarredStyled';
 import axios from 'axios';
 
 const UserStarred = () => {
@@ -25,6 +26,8 @@ const UserStarred = () => {
                 } 
             })
             .catch((err) => {
+                alert('Esse usuário não existe, você será redirecionado para a pagina de pesquisa novamente')
+                goToSearchUser (history)
             })
         } else {
           alert('Você está sem conexão de internet no momento, tente mais tarde');
@@ -51,12 +54,9 @@ const UserStarred = () => {
             </Bar>
             <Repos>
                 <h1>Mais visitados</h1>
-                <div>
-                    {starredRepos}
-                </div>
+                {starredRepos}
             </Repos>
         </Main>
     )
 }
-
 export default UserStarred;
