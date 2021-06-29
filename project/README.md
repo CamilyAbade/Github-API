@@ -15,7 +15,6 @@
     <img src='./public/repos.jpeg' heigth='10px' />
     <img src='./public/starred.jpeg' heigth='10px' />
   </div>
-
 </div>
 
 <h3 Align="center"> 
